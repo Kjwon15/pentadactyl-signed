@@ -62,7 +62,8 @@ max_fx_version="$(python "${DIR}"/max_firefox_version.py)"
 sed -e 's/em:id="pentadactyl@dactyl.googlecode.com"/em:id="'"$addon_id"'"/' \
 	-e 's#\(em:homepageURL.*\)#\1\n        em:updateURL="https://raw.githubusercontent.com/'"$github_user"'/'"$github_repo"'/master/update.rdf"#' \
 	-e 's#\(em:name.*\)#em:name="PentadactylSigned"#' \
-     -e 's/em:maxVersion=".*"/em:maxVersion="'"$max_fx_version"'"/' \
+	-e 's/em:maxVersion=".*"/em:maxVersion="'"$max_fx_version"'"/' \
+	-e 's/em:minVersion=".*"/em:minVersion="53.0"/' \
 	-i pentadactyl/install.rdf
 
 # Build xpi
